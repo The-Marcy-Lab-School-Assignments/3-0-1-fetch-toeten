@@ -30,8 +30,21 @@ export const setupPageBasics = (parentEl) => {
     return { statusDiv, usersUl, postsUl, newUserForm, newUserDiv };
 };
 
-export const renderStatus = () => {
-}
+export const renderStatus = (statusDiv, statusInfoObj) => {
+
+  const h2 = document.createElement('h2')
+  h2.id = 'status-heading'
+  h2.textContent = `Info on - ${statusInfoObj.url}`
+
+  statusDiv.appendChild(h2)
+
+  const p = document.createElement('p')
+  p.id = 'status-code'
+  p.textContent = `Status code: ${statusInfoObj.status}, ${statusInfoObj.ok ? 'OK!' : 'FAIL!'}`
+
+  statusDiv.appendChild(p)
+};
+
 
 export const renderUsers = () => {
 };
