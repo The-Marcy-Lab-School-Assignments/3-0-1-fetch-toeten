@@ -17,5 +17,5 @@ checkResponseStatus()
 .then(users => console.log('users:', users))
 .then(() => getUserPosts(1))
 .then(posts => console.log('posts:', posts))
-//   .then(() => createNewUser({ name: 'max12', email: 'max@gmail.com' }))
-//   .then(newUser => console.log('newUser:', newUser));
+.then(() => createNewUser({ name: 'max12', email: 'max@gmail.com' }))
+.then(newUser => console.log('newUser:', newUser));

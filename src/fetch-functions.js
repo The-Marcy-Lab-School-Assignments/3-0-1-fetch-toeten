@@ -30,6 +30,24 @@ export const getUserPosts = (userId, maxNumPosts = 3) => {
     })
     .then(posts => posts.slice(0, maxNumPosts))
 };
+ 
 
-export const createNewUser = () => {
+
+
+export const createNewUser = (newUserData) => {
+  const postOption = {
+    method: "POST",
+    body: JSON.stringify(newUserData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
+  return fetch(userUrl, postOption)
+  .then(data => {
+    const newUser = {
+      ...newUserData,
+      id: 11
+    }
+    return newUser
+  })
 }
