@@ -62,7 +62,23 @@ export const renderUsers = (usersUl, users) => {
 })
 };
 
-export const renderPosts = () => {
+export const renderPosts = (postsUl, posts) => {
+  postsUl.innerHTML = ''
+
+  posts.forEach(post => {
+    const li = document.createElement('li')
+
+    const h2 = document.createElement('h2')
+    h2.setAttribute('data-post-id', post.id)
+    h2.textContent = `${post.title}`
+
+    const p = document.createElement('p')
+    p.textContent = `${post.body}`
+
+    li.append(h2,p)
+
+    postsUl.appendChild(li)
+  })
 }
 
 export const renderNewUser = () => {
