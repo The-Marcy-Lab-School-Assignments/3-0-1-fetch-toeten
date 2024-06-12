@@ -22,7 +22,13 @@ export const getUsers = () => {
   .then(users => users)
 };
 
-export const getUserPosts = () => {
+export const getUserPosts = (userId, maxNumPosts = 3) => {
+  const url = `https://jsonplaceholder.typicode.com/users/${userId}/posts`;
+  return fetch(url)
+    .then(response => {
+      return response.json()
+    })
+    .then(posts => posts.slice(0, maxNumPosts))
 };
 
 export const createNewUser = () => {
