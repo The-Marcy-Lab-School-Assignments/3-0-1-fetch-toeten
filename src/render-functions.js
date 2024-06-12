@@ -46,7 +46,20 @@ export const renderStatus = (statusDiv, statusInfoObj) => {
 };
 
 
-export const renderUsers = () => {
+export const renderUsers = (usersUl, users) => {
+  usersUl.innerHTML = ''
+  users.forEach(user => {
+
+  const li = document.createElement('li')
+  li.classList.add("user-card")
+
+  const button = document.createElement('button')
+  button.setAttribute('data-user-id', user.id)
+  button.textContent = `Load ${user.username}'s posts`
+
+  li.appendChild(button)
+  usersUl.appendChild(li)
+})
 };
 
 export const renderPosts = () => {
