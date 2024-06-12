@@ -81,5 +81,13 @@ export const renderPosts = (postsUl, posts) => {
   })
 }
 
-export const renderNewUser = () => {
+export const renderNewUser = (newUserDiv, newUserInfo) => {
+  newUserDiv.innerHTML = ''
+
+  const h2 = document.createElement('h2')
+  h2.textContent = newUserInfo.username
+  const p = document.createElement('p')
+  p.textContent = newUserInfo.email
+
+  newUserDiv.append(h2,p)
 }
