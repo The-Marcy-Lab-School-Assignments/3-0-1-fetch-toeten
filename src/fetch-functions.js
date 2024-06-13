@@ -19,7 +19,9 @@ export const getUsers = () => {
   .then(response => {
     return response.json()
   })
-  .then(users => users)
+  .catch(error => {
+    console.error("nuh uh uh... couldn't get users")
+  })
 };
 
 export const getUserPosts = (userId, maxNumPosts = 3) => {
@@ -29,6 +31,7 @@ export const getUserPosts = (userId, maxNumPosts = 3) => {
       return response.json()
     })
     .then(posts => posts.slice(0, maxNumPosts))
+    .catch(error => console.error('too many posts?'))
 };
  
 
@@ -50,4 +53,5 @@ export const createNewUser = (newUserData) => {
     }
     return newUser
   })
+  .catch(error => console.error('ya done messed up'))
 }
